@@ -1,0 +1,52 @@
+{
+    "name": "donjan-deng/laravel-acm-client",
+    "description": "laravel aliyun acm client",
+    "keywords": [
+        "donjan",
+        "laravel",
+        "acm client",
+        "aliyun acm"
+    ],
+    "homepage": "https://github.com/donjan-deng/laravel-acm-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Donjan",
+            "homepage": "https://github.com/donjan-deng",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Donjan\\AcmClient\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Donjan\\AcmClient\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Donjan\\AcmClient\\Providers\\AcmServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": ""
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
