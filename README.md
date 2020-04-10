@@ -47,6 +47,8 @@ ALIYUN_ACM_SK=******
 ```
 ## 使用
 
+如果之前执行过`php artisan config:cache`,需要`php artisan config:clear`后重新执行`php artisan config:cache`
+
 手动执行命令`php artisan acm:get-config`拉取配置。
 
 如果你启用了任务调度，修改`App\Console\Kernel`,添加一个任务
