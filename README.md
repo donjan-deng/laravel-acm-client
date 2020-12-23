@@ -45,6 +45,12 @@ ALIYUN_ACM_GROUP=LARAVEL
 ALIYUN_ACM_AK=******
 ALIYUN_ACM_SK=******
 ```
+## 发布配置
+
+```
+php artisan vendor:publish --provider="Donjan\AcmClient\Providers\AcmServiceProvider"
+```
+
 ## 使用
 
 如果之前执行过`php artisan config:cache`,需要`php artisan config:clear`后重新执行`php artisan config:cache`

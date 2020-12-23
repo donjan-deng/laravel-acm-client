@@ -3,7 +3,6 @@
 namespace Donjan\AcmClient\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Dotenv\Dotenv;
 use Illuminate\Filesystem\Filesystem;
 use Donjan\AcmClient\Commands\GetConfig;
 
@@ -18,11 +17,12 @@ class AcmServiceProvider extends ServiceProvider
     public function boot(Filesystem $filesystem)
     {
         if ($this->app->runningInConsole()) {
+            $this->publishes([__DIR__ . '/../config/acm.php' => config_path('acm.php')], 'acm');
             $this->commands([
                 GetConfig::class
             ]);
         }
-        $file = base_path() . DIRECTORY_SEPARATOR . 'acm.json';
+        $file = config('acm.path');
         if ($filesystem->exists($file)) {
             $configArr = json_decode($filesystem->get($file), true);
             config($configArr);

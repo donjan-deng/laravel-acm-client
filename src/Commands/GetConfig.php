@@ -15,14 +15,14 @@ class GetConfig extends Command
     public function handle(Filesystem $filesystem)
     {
         $client = new AcmClient('acm.aliyun.com', '8080');
-        $client->setAccessKey(env('ALIYUN_ACM_AK'));
-        $client->setSecretKey(env('ALIYUN_ACM_SK'));
-        $client->setNameSpace(env('ALIYUN_ACM_NAMESPACE'));
+        $client->setAccessKey(config('acm.access_key'));
+        $client->setSecretKey(config('acm.secret_key'));
+        $client->setNameSpace(config('acm.namespace'));
         $client->refreshServerList();
-        $dataId = env('ALIYUN_ACM_DATA_ID');
-        $group = env('ALIYUN_ACM_GROUP');
+        $dataId = config('acm.data_id');
+        $group = config('acm.group');
         $config = $client->getConfig($dataId, $group);
-        $filesystem->put(base_path() . DIRECTORY_SEPARATOR . 'acm.json', $config);
+        $filesystem->put(config('acm.path'), $config);
         $this->info('success');
     }
 
